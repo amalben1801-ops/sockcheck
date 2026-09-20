@@ -214,17 +214,19 @@ Live camera access may be blocked over a plain HTTP LAN address. Selecting a sav
 
 ### Screenshots
 
-![SockCheck welcome screen](docs/Screenshot%202026-09-12%20092747.png)
+<img width="1748" height="987" alt="Screenshot 2026-09-20 170734" src="https://github.com/user-attachments/assets/997c21b2-b84c-455b-b2c0-ccc788698f18" />
 
-*The cinematic welcome screen introduces SockCheck before automatically opening the detector.*
 
-![SockCheck two-photo interface](docs/Screenshot%202026-09-12%20092800.png)
 
-*Separate controls allow users to select, preview, capture and crop Sock A and Sock B.*
 
-![SockCheck comparison result](docs/Screenshot%202026-09-12%20092816.png)
+<img width="1881" height="1036" alt="Screenshot 2026-09-20 170648" src="https://github.com/user-attachments/assets/8758be84-8c79-4af1-95ea-7fbdeb6976b2" />
 
-*The result area presents pair-match, colour and texture similarity scores.*
+
+
+![Uploading Screenshot 2026-09-20 170632.png…]()
+
+
+
 
 ### Schematic and Circuit
 
