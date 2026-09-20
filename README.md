@@ -290,7 +290,7 @@ The tests cover page loading, the two-image upload flow, identical and different
 ## Project Demo
 
 - **Repository:** [github.com/amalben1801-ops/sockcheck](https://github.com/amalben1801-ops/sockcheck)
-- **Local application:** `http://127.0.0.1:5000`
+- https://sockcheck.onrender.com/
 
 ## Team Contributions
 
