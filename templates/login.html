@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SockCheck 🧦💘 | Welcome to the Sock Soulmate Bureau</title>
+  <meta name="description" content="SockCheck cartoon welcome screen. Every socks deserve to find its soulmate.">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Sniglet:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}?v=6">
+</head>
+<body class="cinematic-login cartoon-welcome">
+  <main class="splash" aria-label="SockCheck welcome screen">
+    <div class="spotlight"></div>
+    <div class="floating-stickers" aria-hidden="true">
+      <span class="bubble b1">🧦</span>
+      <span class="bubble b2">✨</span>
+      <span class="bubble b3">💖</span>
+      <span class="bubble b4">🧺</span>
+    </div>
+    
+    <div class="welcome-header">
+      <div class="top-tag">🧺 USELESS HACKATHON EDITION 🧺</div>
+      <h1 class="login-slogan">✨ "every socks deserve to find its soulmate" 💕</h1>
+    </div>
+
+    <figure class="hero-frame">
+      <img src="{{ url_for('static', filename='login-hero.jpg') }}" alt="Welcome portrait saying hiii chellow">
+      <div class="film-grain"></div>
+      <div class="hero-caption-badge">🧦 Sock Matchmaker in Chief 🫡</div>
+    </figure>
+
+    <div class="loading" aria-live="polite">
+      <span>SOCKCHECK · FABRIC CUPID 3000™</span>
+      <div class="track"><i></i></div>
+      <small>Waking up the Sock Cupid & heating up the dryer… 🧦✨</small>
+    </div>
+  </main>
+  <script>
+    window.setTimeout(function () {
+      window.location.replace({{ url_for('detector')|tojson }});
+    }, 3800);
+  </script>
+</body>
+</html>

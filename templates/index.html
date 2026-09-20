@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SockCheck 🧦💘 | Every Socks Deserve To Find Its Soulmate</title>
+  <meta name="description" content="The world's premier cartoon sock compatibility matchmaker! Every socks deserve to find its soulmate.">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Sniglet:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=5">
+  <link rel="stylesheet" href="{{ url_for('static', filename='extras.css') }}?v=5">
+  <script defer src="{{ url_for('static', filename='app.js') }}?v=4"></script>
+</head>
+<body class="cartoon-theme">
+  <!-- Floating background sock doodles -->
+  <div class="doodle-bg" aria-hidden="true">
+    <span class="doodle d1">🧦</span>
+    <span class="doodle d2">✨</span>
+    <span class="doodle d3">🧺</span>
+    <span class="doodle d4">💕</span>
+    <span class="doodle d5">🧼</span>
+    <span class="doodle d6">🧦</span>
+    <span class="doodle d7">💖</span>
+  </div>
+
+  <header>
+    <a class="brand" href="{{ url_for('detector') }}">
+      <span class="brand-icon">🧦</span>
+      <span class="brand-text">SockCheck<span class="brand-sparkle">✨</span></span>
+      <span class="badge-pill">CUPID EDITION 💘</span>
+    </a>
+    <nav>
+      <span class="nav-tag">🫧 LAUNDRY LAB v2.0 🫧</span>
+      <a class="logout-link" href="{{ url_for('logout') }}">🚪 Run Away from Love</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero-banner">
+      <div class="sticker-badge">🚨 CRITICAL LAUNDRY BUREAU 🚨</div>
+      <p class="slogan">✨ "every socks deserve to find its soulmate" 💕🧦</p>
+      <h1>Two Lonely Socks. One True Soulmate Test! 🧦⚡🧦</h1>
+      <p class="intro">
+        Did the washing machine kidnap a partner? Found a mysterious singleton under the bed?
+        Upload both socks below, trim out the bedroom floor dust, and let our Sock DNA Cupid judge their yarn chemistry! 🧺💖
+      </p>
+    </div>
+
+    <form id="comparison-form" enctype="multipart/form-data">
+      <div class="cards">
+        <!-- SOCK A -->
+        <section class="card card-a" aria-labelledby="heading-a">
+          <div class="card-tape">📌 BACHELOR A</div>
+          <h2 id="heading-a">
+            <span class="badge badge-a">🅰️</span>
+            <span>Sock A <small class="sock-sub">"The Lonely One" 🥺</small></span>
+          </h2>
+          <div class="canvas-frame">
+            <div class="placeholder" id="placeholder-a">
+              <span class="placeholder-emoji">🧦</span>
+              <p>Drop lonely sock photo here!<br><small>Show off that fine heel & toe pattern</small></p>
+            </div>
+            <canvas id="canvas-a" hidden aria-label="Sock A photo. Drag a box to crop, or use the full photo."></canvas>
+          </div>
+          <label class="file-label" for="file-a">📁 Pick photo for Sock A</label>
+          <input id="file-a" name="sock_a" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="file-help">
+          <div class="buttons">
+            <button type="button" data-camera="a" class="btn-cartoon">📸 Take Sock Selfie</button>
+            <button type="button" data-full="a" class="btn-cartoon" disabled>🔲 Use Entire Sock</button>
+          </div>
+          <p class="selection" id="selection-a">👀 No sock selected yet... it's chilly!</p>
+        </section>
+
+        <!-- SOCK B -->
+        <section class="card card-b" aria-labelledby="heading-b">
+          <div class="card-tape">📌 CANDIDATE B</div>
+          <h2 id="heading-b">
+            <span class="badge badge-b">🅱️</span>
+            <span>Sock B <small class="sock-sub">"Potential Soulmate" 💘</small></span>
+          </h2>
+          <div class="canvas-frame">
+            <div class="placeholder" id="placeholder-b">
+              <span class="placeholder-emoji">🧦</span>
+              <p>Drop potential match photo here!<br><small>Will their fabric spark true love?</small></p>
+            </div>
+            <canvas id="canvas-b" hidden aria-label="Sock B photo. Drag a box to crop, or use the full photo."></canvas>
+          </div>
+          <label class="file-label" for="file-b">📁 Pick photo for Sock B</label>
+          <input id="file-b" name="sock_b" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="file-help">
+          <div class="buttons">
+            <button type="button" data-camera="b" class="btn-cartoon">📸 Take Sock Selfie</button>
+            <button type="button" data-full="b" class="btn-cartoon" disabled>🔲 Use Entire Sock</button>
+          </div>
+          <p class="selection" id="selection-b">👀 Waiting for Candidate B to arrive...</p>
+        </section>
+      </div>
+
+      <div class="help-box">
+        <p id="file-help" class="help">
+          💡 <strong>Pro Sock-Dating Tip:</strong> JPG, PNG, or WebP up to 10 MB. Drag a cozy box around the fabric to exclude your hairy toes, trousers, and bedroom carpet! We strictly judge pure sock personality & yarn vibes. 🧦✨
+        </p>
+      </div>
+
+      <div class="submit-row">
+        <button id="compare" class="primary btn-giant" type="submit" disabled>
+          💘 Test Sock Compatibility! ⚡
+        </button>
+        <button id="reset" class="btn-secondary" type="button">
+          🧹 Laundry Wash (Clear Both) 🧼
+        </button>
+      </div>
+    </form>
+
+    <div class="speech-bubble-container">
+      <div class="speech-bubble">
+        <span class="cupid-avatar">🧦👼</span>
+        <p id="message" role="status">Add both sock photos to unleash the Sock Cupid! 💘</p>
+      </div>
+    </div>
+
+    <!-- RESULTS SECTION -->
+    <section id="result" hidden aria-live="polite">
+      <div class="result-header">
+        <div class="result-stamp" id="result-stamp">OFFICIAL VERDICT</div>
+        <h2 id="verdict"></h2>
+        <p id="explanation"></p>
+      </div>
+
+      <div class="scores">
+        <div class="score-card score-main">
+          <span class="score-label">💘 Soulmate Chemistry</span>
+          <strong id="match-score">--/100</strong>
+          <span class="score-caption">Overall Vibe Check</span>
+        </div>
+        <div class="score-card score-color">
+          <span class="score-label">🎨 Color Harmony</span>
+          <strong id="colour">--/100</strong>
+          <span class="score-caption">Dye & Shade Sync</span>
+        </div>
+        <div class="score-card score-texture">
+          <span class="score-label">🧶 Yarn & Weave Feel</span>
+          <strong id="texture">--/100</strong>
+          <span class="score-caption">Fabric Texture Touch</span>
+        </div>
+      </div>
+
+      <figure id="perfect-match" hidden>
+        <div class="gif-wrapper">
+          <img src="{{ url_for('static', filename='perfect-ok.gif') }}" alt="Perfect OK celebration">
+        </div>
+        <figcaption>🎉💍 IT'S A MATCH MADE IN HEAVEN! 90%+ COMPATIBILITY! Put them together in the clean drawer immediately! 🏆🧦</figcaption>
+      </figure>
+
+      <figure id="different-video" hidden>
+        <div class="video-wrapper">
+          <video id="different-video-player" controls playsinline preload="auto">
+            <source src="{{ url_for('static', filename='not-same.mp4') }}?v=2" type="video/mp4">
+            Your browser cannot play this video.
+          </video>
+        </div>
+        <figcaption>💔 OOF! Heartbreaking evidence attached: these two socks are absolute strangers! Do not force it! 😭</figcaption>
+        <button id="play-different-video" class="btn-cartoon" type="button" hidden>🔊 Play Romantic Tragedy with Sound 🍿</button>
+      </figure>
+
+      <p class="help text-center">✨ Scientific color & texture similarity metric — not a boring confidence percentage! 🌈</p>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <details class="cartoon-faq">
+      <summary>🤔 How does this scientific sock romance test actually work?</summary>
+      <div class="faq-content">
+        <p>
+          Our hyper-advanced Flask cupid engine extracts color histograms (216 color bins!) and tests micro-level gray-scale fabric textures. It's built for useless hackathons, laughs, and saving lonely socks from living a tragic single life in the back of the drawer! 🧺
+        </p>
+        <p>
+          🔐 <strong>Privacy Guarantee:</strong> Sock photos are analyzed completely in-memory on your local Flask server. No sock paparazzi or cloud giants will ever steal your sock's identity. 🧦🛡️
+        </p>
+      </div>
+    </details>
+  </main>
+
+  <dialog id="camera-dialog" class="cartoon-dialog">
+    <div class="dialog-header">
+      <h2 id="camera-title">📸 Sock Paparazzi Mode!</h2>
+      <span class="camera-emoji">✨🧀✨</span>
+    </div>
+    <video id="video" autoplay playsinline muted></video>
+    <p id="camera-message" role="status"></p>
+    <div class="buttons dialog-buttons">
+      <button id="capture" class="primary btn-cartoon" disabled>📸 Snap That Sock!</button>
+      <button id="close-camera" class="btn-cartoon">❌ Cancel (Too Shy)</button>
+    </div>
+  </dialog>
+</body>
+</html>

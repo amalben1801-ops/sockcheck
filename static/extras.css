@@ -1,0 +1,43 @@
+/* SockCheck Extras: Refinements & cartoon media adjustments */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#perfect-match, #different-video {
+  margin: 24px 0 10px;
+  text-align: center;
+}
+
+#perfect-match img {
+  display: block;
+  width: min(260px, 100%);
+  margin: 0 auto;
+}
+
+#different-video video {
+  display: block;
+  width: min(440px, 100%);
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+#perfect-match figcaption, #different-video figcaption {
+  margin: 14px 0 8px;
+}
+
+#play-different-video {
+  margin: 12px auto 6px;
+  background: var(--color-yellow);
+}
+
+#play-different-video:hover {
+  background: #f7c32b;
+}
+
+@media (max-width: 600px) {
+  header nav .nav-tag {
+    display: none;
+  }
+}

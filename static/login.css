@@ -1,0 +1,271 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Fredoka', 'Comic Neue', Arial, sans-serif;
+  background: #050505;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #050505;
+}
+
+.splash {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 34px 24px 94px;
+  background: radial-gradient(circle at center, #2b210b 0, #100d06 35%, #050505 73%);
+}
+
+/* Golden warm spotlight (same as original) */
+.spotlight {
+  position: absolute;
+  width: min(86vw, 850px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ffbd21;
+  opacity: 0.15;
+  filter: blur(100px);
+  animation: breathe 3.8s ease-in-out both;
+}
+
+/* Floating emoji stickers (very subtle, don't distract from hero) */
+.floating-stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.18;
+  animation: floatBubble 5s ease-in-out infinite alternate;
+}
+
+.b1 { top: 10%; left: 5%; animation-duration: 4.2s; }
+.b2 { top: 15%; right: 7%; animation-duration: 5s; font-size: 1.4rem; }
+.b3 { bottom: 18%; left: 6%; animation-duration: 4.8s; }
+.b4 { bottom: 20%; right: 6%; animation-duration: 5.5s; font-size: 1.6rem; }
+
+@keyframes floatBubble {
+  from { transform: translateY(0) rotate(-8deg); }
+  to { transform: translateY(-14px) rotate(8deg); }
+}
+
+/* Slogan above the hero image */
+.welcome-header {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.top-tag {
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #ffd043;
+  color: #1e2530;
+  border: 2px solid #1e1a0e;
+  box-shadow: 2px 2px 0px #1e1a0e;
+  padding: 4px 13px;
+  border-radius: 6px;
+  margin-bottom: 9px;
+  transform: rotate(-1.5deg);
+  display: block;
+  width: fit-content;
+  margin: 0 auto 9px;
+}
+
+.login-slogan {
+  font-family: 'Sniglet', 'Fredoka', cursive, sans-serif;
+  font-size: clamp(16px, 3vw, 24px);
+  font-weight: 800;
+  color: #ffe699;
+  text-shadow: 2px 2px 0px #a0640a;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* Hero image frame — exactly the original film strip look */
+.hero-frame {
+  position: relative;
+  z-index: 2;
+  width: min(68vh, 70vw, 630px);
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 8px;
+  background: #d99c06;
+  box-shadow:
+    0 42px 110px rgba(0,0,0,.9),
+    0 0 0 1px rgba(255,229,155,.4),
+    0 0 70px rgba(255,183,18,.14);
+  animation: entrance .75s cubic-bezier(.2,.75,.25,1) both;
+}
+
+/* Original film perforation holes on sides */
+.hero-frame::before,
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 8px;
+  height: 78%;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    #050505 0 12px,
+    transparent 12px 24px
+  );
+  opacity: 0.9;
+}
+
+.hero-frame::before { left: -4px; }
+.hero-frame::after { right: -4px; }
+
+.hero-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Caption badge below the image */
+.hero-caption-badge {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffd043;
+  color: #1e1a0e;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border: 2px solid #1e1a0e;
+  box-shadow: 2px 2px 0px #1e1a0e;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Film grain overlay */
+.film-grain {
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain .22s steps(2) infinite;
+}
+
+/* Loading bar at the bottom */
+.loading {
+  position: fixed;
+  z-index: 4;
+  left: 50%;
+  bottom: 27px;
+  width: min(330px, 72vw);
+  transform: translateX(-50%);
+  text-align: center;
+  color: #d1c8b4;
+}
+
+.loading span {
+  display: block;
+  margin-bottom: 11px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: #ffc329;
+}
+
+.track {
+  height: 4px;
+  overflow: hidden;
+  background: #302c24;
+  border-radius: 4px;
+}
+
+.track i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff5e7e, #ffc329);
+  transform-origin: left;
+  animation: progress 3.8s linear forwards;
+}
+
+.loading small {
+  display: block;
+  margin-top: 10px;
+  color: #9a9080;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+/* Fade-out overlay before redirect */
+.splash:after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: #050505;
+  opacity: 0;
+  animation: fadeout .45s ease 3.35s forwards;
+}
+
+/* Keyframes */
+@keyframes entrance {
+  from { opacity: 0; transform: scale(.93) rotate(-1.5deg); }
+  to   { opacity: 1; transform: scale(1) rotate(-.4deg); }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes fadeout {
+  to { opacity: 1; }
+}
+
+@keyframes breathe {
+  0%   { transform: scale(.85); opacity: .08; }
+  55%  { transform: scale(1);   opacity: .2; }
+  100% { transform: scale(.94); opacity: .12; }
+}
+
+@keyframes grain {
+  0%   { transform: translate(0); }
+  25%  { transform: translate(1.5%, -1%); }
+  50%  { transform: translate(-1%, 1.5%); }
+  75%  { transform: translate(1%, 1%); }
+  100% { transform: translate(-1.5%, -1%); }
+}
+
+@media (max-width: 600px) {
+  .splash { padding: 22px 18px 88px; }
+  .hero-frame { width: min(82vw, 520px); padding: 6px; }
+  .film-grain { inset: 6px; }
+  .welcome-header { margin-bottom: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-frame, .spotlight, .film-grain { animation: none; }
+  .track i { animation-duration: 3.8s; }
+}
